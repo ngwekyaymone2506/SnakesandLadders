@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Select Option</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        height: 100vh;
+        font-family: "Silkscreen", sans-serif;
+        position: relative;
+      }
+
+      .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("./playerBg.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        filter: blur(6px);
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        50% {
+          transform: scale(1.1);
+          opacity: 1;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+      #section {
+        width: 500px;
+        position: absolute;
+        top: 20%;
+        left: 30%;
+        height: 200px;
+        border: 5px solid rgb(230, 207, 9);
+        background-color: rgb(73, 53, 245);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        animation: pulse 3s ease-in;
+        box-shadow: 4px 4px 10px black;
+        border-radius: 20px;
+      }
+      .option {
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        top: 30%;
+        left: 10%;
+        border: 5px solid green;
+        background-color: aliceblue;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        box-shadow: 4px 4px 10px black;
+        border-radius: 20px;
+      }
+      .two {
+        top: 30%;
+        left: 65%;
+      }
+      h2 {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 50px;
+        color: black;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="background"></div>
+    <div id="section">
+      <h4>Choose game mode:</h4>
+      <div class="option one" onclick="startGame('Player')">
+        <img src="multiplayers.png" width="90%" />
+      </div>
+      <h2>VS</h2>
+      <div class="option two" onclick="startGame('Bot')">
+        <img src="computer.png" width="90%" />
+      </div>
+    </div>
+
+
+    <script>
+      function startGame(playerType) {
+        // Store the player's choice in local storage
+        localStorage.setItem("playerType", playerType);
+        // Redirect to html
+        window.location.href = "playBoardarea.html";
+      }
+    </script>
+  </body>
+</html>

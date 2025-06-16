@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./playBoard.css" />
+    <script src="./playBoard.js" defer></script>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Macondo&display=swap"
+      rel="stylesheet"
+    />
+    <title>SnakesAndLadders</title>
+    <style>
+      #icon {
+        position: absolute;
+        right: 50px;
+        border: 5px solid orange;
+        border-style: groove;
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="voicebtn" onclick="toggleAudio()">
+      <img src="./mute.png" alt="sound-icon" width="50px" id="icon" />
+    </button>
+    <audio
+      id="audio"
+      src="./Sneaky snooper _ Background music(MP3_160K).mp3"
+      loop
+    ></audio>
+
+    <h1>Snakes and Ladders Game</h1>
+    <div id="container">
+      <div id="game-mode" class="player-type">
+        Game Mode:
+        <div id="mode"></div>
+        <div id="first" class="text"></div>
+        <div id="second" class="text"></div>
+      </div>
+
+      <div id="board"></div>
+
+      <div id="section">
+        <div class="box1">
+          <div class="champ"></div>
+          <div class="turn">Player 1's Turn!</div>
+        </div>
+
+        <p id="info"></p>
+        <div class="roll"></div>
+        <!-- dice -->
+        <button class="dice-btn" onclick="roll()">ROLL NOW</button>
+      </div>
+    </div>
+    <div id="display">
+      <div id="winner-display"></div>
+      <button id="playAgain">Play Again</button>
+    </div>
+
+    <div class="desBox" id="desBox">
+      <img src="./cancel.png" alt="cancel" width="30px" id="cancel">
+      <div class="des">
+        <div class="line">
+          The one who reaches the target first will be the winner...
+        </div>
+        <div class="line">
+          The ladders will help you to reach the target faster...
+        </div>
+        <div class="line pop">BUT</div>
+        <div class="line pop four">Be aware of Snakes on the way!</div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Start Page</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        background-image: url("board-game.jpg");
+        background-size: cover;
+        background-position: center;
+      }
+      .silkscreen-regular {
+        font-family: "Silkscreen", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+      }
+      .silkscreen-bold {
+        font-family: "Silkscreen", sans-serif;
+        font-weight: 700;
+        font-style: normal;
+      }
+      .animated-button {
+        background-color: hsl(115, 98%, 50%);
+        border: 8px solid #065f06;
+        color: white;
+        padding: 10px 32px;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 40px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 70px;
+        animation: pulse 2s infinite;
+        font-family: "Silkscreen", sans-serif;
+      }
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        50% {
+          transform: scale(1.1);
+          opacity: 0.7;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+      @keyframes pulse-dice {
+        0% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        50% {
+          transform: scale(1.1);
+          opacity: 0.8;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+      @keyframes drop-down {
+        0% {
+          transform: translateY(-100%);
+          opacity: 0;
+        }
+        100% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+      #img1 {
+        margin-top: 50px;
+        animation: drop-down 1s ease-out;
+      }
+      #img2 {
+        position: absolute;
+        top: 65%;
+        left: 33%;
+        border: none;
+        display: inline-block;
+        margin: 4px 2px;
+        cursor: pointer;
+        font-family: "Matemasie", sans-serif;
+        animation: drop-down 1s ease-out, pulse-dice 2s infinite;
+      }
+      #voicebtn {
+        position: absolute;
+        top: 7%;
+        left: 90%;
+        background-color: transparent;
+        border: 1px solid transparent;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="voicebtn" onclick="toggleAudio()">
+      <img src="./mute.png" alt="sound-icon" width="50px" id="icon" />
+    </button>
+    <audio
+      id="audio"
+      src="./Gaming intro Sound Effect(MP3_160K).mp3"
+      loop
+    ></audio>
+
+    <img src="snakesnladders-header-thumbnail.png" id="img1" width="40%" />
+    <img src="pngwing.com.png" id="img2" width="10%" />
+    <button class="animated-button silkscreen-regular" onclick="startGame()">
+      Play
+    </button>
+
+    <script>
+      let audio = document.getElementById("audio");
+      let sound = document.getElementById("icon");
+
+      function toggleAudio() {
+        if (audio.paused) {
+          audio.play();
+          icon.src = "./volume.png";
+        } else {
+          audio.pause();
+          icon.src = "./mute.png";
+        }
+      }
+
+      function startGame() {
+        window.location.href = "choicePlayer.html";
+      }
+    </script>
+  </body>
+</html>
